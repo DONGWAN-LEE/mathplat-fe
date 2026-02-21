@@ -13,7 +13,7 @@ export function Sidebar({ className }: SidebarProps) {
   const pathname = usePathname();
 
   return (
-    <nav className={cn('flex flex-col gap-1 p-4', className)}>
+    <nav aria-label="메인 네비게이션" className={cn('flex flex-col gap-1 p-4', className)}>
       {navItems.map((item) => {
         const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
         const Icon = item.icon;
@@ -23,10 +23,10 @@ export function Sidebar({ className }: SidebarProps) {
             key={item.href}
             href={item.href}
             className={cn(
-              'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+              'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200',
               isActive
-                ? 'bg-primary text-primary-foreground'
-                : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground',
+                ? 'bg-white/15 text-white shadow-sm border-l-2 border-white'
+                : 'text-sidebar-muted-foreground hover:bg-white/10 hover:text-white',
             )}
           >
             <Icon className="h-4 w-4" />

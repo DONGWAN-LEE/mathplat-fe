@@ -8,10 +8,15 @@ import { GoogleLoginButton } from '@/features/auth';
 
 export function SignupPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background p-4">
-      <Card className="w-full max-w-md">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-auth p-4">
+      <Card className="w-full max-w-md shadow-lg border-border/50">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold">MathPlat</CardTitle>
+          <CardTitle className="flex items-center justify-center gap-2 text-2xl font-bold">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground text-base font-bold">
+              M
+            </div>
+            <span className="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">MathPlat</span>
+          </CardTitle>
           <CardDescription>새 계정을 만드세요</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

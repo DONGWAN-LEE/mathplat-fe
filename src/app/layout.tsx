@@ -16,8 +16,21 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'MathPlat - 수학 학습 플랫폼',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3001'),
+  title: {
+    default: 'MathPlat - 수학 학습 플랫폼',
+    template: '%s | MathPlat',
+  },
   description: '효과적인 수학 학습을 위한 적응형 학습 플랫폼',
+  openGraph: {
+    title: 'MathPlat - 수학 학습 플랫폼',
+    description: '효과적인 수학 학습을 위한 적응형 학습 플랫폼',
+    siteName: 'MathPlat',
+    type: 'website',
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
@@ -26,14 +39,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
           {children}
+          <Toaster />
         </Providers>
-        <Toaster />
       </body>
     </html>
   );

@@ -21,69 +21,72 @@
 
 ## 남은 작업
 
-### Phase 3: 교육과정 (Curriculum) 페이지
+### Phase 3: 교육과정 (Curriculum) 페이지 (완료)
 **우선순위: 높음** | **예상 범위: 10~15개 파일**
 
-- [ ] `entities/curriculum/` — Curriculum, Chapter, Section, Topic, LearningObjective 타입 정의
-- [ ] `entities/curriculum/api/` — TanStack Query 훅 (CRUD 17개 엔드포인트 커버)
-- [ ] `features/curriculum/` — 교육과정 트리 네비게이션, 검색/필터
-- [ ] `widgets/curriculum-tree/` — 5계층 트리 뷰 (접기/펼치기)
-- [ ] `views/curriculum/` — 교육과정 목록, 상세 페이지
-- [ ] `app/(main)/curriculum/` — 라우트 설정 (목록, [id] 상세)
-- [ ] shadcn 추가: `accordion`, `breadcrumb`, `collapsible`
+- [x] `entities/curriculum/` — Curriculum, Chapter, Section, Topic, LearningObjective 타입 정의
+- [x] `entities/curriculum/api/` — TanStack Query 훅 (CRUD 17개 엔드포인트 커버)
+- [x] `features/curriculum-filter/` — 교육과정 트리 네비게이션, 검색/필터
+- [x] `widgets/curriculum-tree/` — 5계층 트리 뷰 (접기/펼치기)
+- [x] `views/curriculum/` — 교육과정 목록, 상세 페이지
+- [x] `app/(main)/curriculum/` — 라우트 설정 (목록, [id] 상세)
+- [x] shadcn 추가: `breadcrumb`, `collapsible`
 
-### Phase 4: 문제풀이 (Problems) 페이지
+### Phase 4: 문제풀이 (Problems) 페이지 (완료)
 **우선순위: 높음** | **예상 범위: 15~20개 파일**
 
-- [ ] `entities/problem/` — Problem 타입 (5가지 문제 유형: 객관식, 주관식, OX, 빈칸, 서술형)
-- [ ] `entities/problem/api/` — 문제 목록 (필터/페이지네이션), 문제 상세
-- [ ] `features/problem-solve/` — 문제 풀이 UI (유형별 입력 컴포넌트)
-- [ ] `features/problem-filter/` — 난이도, 유형, 교육과정 필터
-- [ ] `widgets/problem-list/` — 문제 카드 목록, 페이지네이션
-- [ ] `widgets/problem-solver/` — 문제 풀이 화면 (문제 + 입력 + 제출)
-- [ ] `views/problems/` — 문제 목록, 문제 풀이 페이지
-- [ ] `app/(main)/problems/` — 라우트 (목록, [id] 풀이)
-- [ ] shadcn 추가: `radio-group`, `checkbox`, `textarea`, `pagination`, `select`
+- [x] `entities/problem/` — Problem 타입 (5가지 문제 유형: 객관식, 주관식, OX, 빈칸, 서술형)
+- [x] `entities/problem/api/` — 문제 목록 (필터/페이지네이션), 문제 상세
+- [x] `features/problem-solve/` — 문제 풀이 UI (유형별 입력 컴포넌트)
+- [x] `features/problem-filter/` — 난이도, 유형, 교육과정 필터
+- [x] `widgets/problem-list/` — 문제 카드 목록, 페이지네이션
+- [x] `widgets/problem-solver/` — 문제 풀이 화면 (문제 + 입력 + 제출)
+- [x] `views/problems/` — 문제 목록, 문제 풀이 페이지
+- [x] `app/(main)/problems/` — 라우트 (목록, [id] 풀이)
+- [x] shadcn 추가: `radio-group`, `textarea`, `pagination`, `select`
 
-### Phase 5: 답안 제출 & 채점 (Attempt)
+### Phase 5: 답안 제출 & 채점 (Attempt) (완료)
 **우선순위: 높음** | **예상 범위: 8~12개 파일**
 
-- [ ] `entities/attempt/` — UserProblemAttempt 타입
-- [ ] `features/attempt/` — 답안 제출 API, 채점 결과 표시
-- [ ] `features/attempt/api/` — submitAnswer, getAttemptHistory
-- [ ] `widgets/attempt-result/` — 정답/오답 피드백 UI (애니메이션)
-- [ ] `widgets/attempt-history/` — 시도 이력 테이블
-- [ ] 실시간 통계 갱신 (제출 후 대시보드 stats 자동 갱신)
+- [x] `entities/attempt/` — AttemptListItem 타입 + useMyAttempts 훅
+- [x] `features/problem-solve/ui/AttemptResultCard` — 채점 결과 피드백 (정답/오답/채점중, 풀이 공개)
+- [x] `features/problem-solve/ui/SubmitAnswer` 리팩토링 — onResult 콜백 위임
+- [x] `widgets/attempt-history/` — 시도 이력 테이블 (페이지네이션, 키보드 접근성)
+- [x] `widgets/problem-solver/` 강화 — AttemptResultCard 통합, 다시풀기 버튼
+- [x] 실시간 통계 갱신 (제출 후 대시보드 stats + 이력 자동 갱신)
+- [x] 대시보드에 최근 풀이 이력 섹션 추가
 
-### Phase 6: 학습 진도 (Progress) 페이지
-**우선순위: 중간** | **예상 범위: 8~10개 파일**
+### Phase 6: 학습 진도 (Progress) 페이지 (완료)
+**우선순위: 중간** | **예상 범위: 12개 파일**
 
-- [ ] `entities/progress/` — UserProgress 타입, 숙달도 레벨
-- [ ] `entities/progress/api/` — 진도 조회 쿼리
-- [ ] `widgets/progress-chart/` — 토픽별 진도 차트 (바 차트 또는 히트맵)
-- [ ] `widgets/mastery-badge/` — 숙달도 뱃지 (beginner → master)
-- [ ] `views/progress/` — 학습 진도 대시보드
-- [ ] `app/(main)/progress/` — 라우트
-- [ ] shadcn 추가: `progress` (프로그레스 바)
-- [ ] 차트 라이브러리 도입 검토: `recharts` or `@nivo`
+- [x] `entities/progress/` — UserProgress 타입, MasteryLevel, 숙달도 라벨/색상 유틸
+- [x] `entities/progress/api/` — useMyProgress, useMyTopicProgress 쿼리
+- [x] `widgets/progress-overview/` — 진도 요약 통계 카드 4개 (토픽수, 문제수, 정답수, 평균 숙달도)
+- [x] `widgets/progress-chart/` — 토픽별 프로그레스 바 리스트 + MasteryBadge
+- [x] `views/progress/` — 학습 진도 페이지
+- [x] `app/(main)/progress/` — 라우트
+- [x] shadcn 추가: `progress` (indicatorClassName 커스텀), `tooltip`
+- [x] 차트 라이브러리 미도입 (shadcn Progress 바로 충분, Phase 9에서 recharts 확장 가능)
 
-### Phase 7: 업적 (Achievements) 페이지
+### Phase 7: 업적 (Achievements) 페이지 (완료)
 **우선순위: 중간** | **예상 범위: 6~8개 파일**
 
-- [ ] `entities/achievement/` — Achievement, UserAchievement 타입
-- [ ] `entities/achievement/api/` — 전체 업적, 내 업적 쿼리
-- [ ] `widgets/achievement-grid/` — 업적 그리드 (달성/미달성)
-- [ ] `widgets/level-progress/` — 레벨 진행 바, XP 표시
-- [ ] `views/achievements/` — 업적 페이지
-- [ ] `app/(main)/achievements/` — 라우트
+- [x] `entities/achievement/` — Achievement, UserAchievement, AchievementCondition 타입
+- [x] `entities/achievement/api/` — useAchievements, useMyAchievements 쿼리
+- [x] `widgets/achievement-grid/` — 업적 그리드 (획득/미획득 매칭, 조건 텍스트)
+- [x] `widgets/level-progress/` — 레벨 진행 바, XP 표시, stat 카드 4개
+- [x] `views/achievements/` — 업적 페이지
+- [x] `app/(main)/achievements/` — 라우트
 
-### Phase 8: 실시간 기능 (Socket.io)
+### Phase 8: 실시간 기능 (Socket.io) (완료)
 **우선순위: 낮음** | **예상 범위: 5~8개 파일**
 
-- [ ] `shared/api/socket.ts` — Socket.io 클라이언트 설정
-- [ ] `features/realtime/` — 실시간 알림, 실시간 통계 갱신
-- [ ] 문제 풀이 중 실시간 피드백
-- [ ] 접속 사용자 표시 (선택)
+- [x] `shared/api/socket.ts` — SocketManager 싱글턴 (JWT 인증, 자동 재연결)
+- [x] `shared/api/useSocket.ts` — useSyncExternalStore 기반 React 훅
+- [x] `features/realtime/` — RealtimeProvider (notification toast, force_logout, 캐시 무효화)
+- [x] `features/realtime/model/types.ts` — 이벤트 타입 + NOTIFICATION_INVALIDATION_MAP
+- [x] Main layout에 RealtimeProvider 통합
+- [x] 문제 제출 시 progress/achievements 캐시 무효화 추가
 
 ### Phase 9: UX 개선 & 테마
 **우선순위: 낮음**

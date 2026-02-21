@@ -2,6 +2,7 @@
 
 import { useAuthStore } from '@/features/auth';
 import { StatsOverview } from '@/widgets/dashboard-stats';
+import { AttemptHistory } from '@/widgets/attempt-history';
 
 export function DashboardPage() {
   const user = useAuthStore((s) => s.user);
@@ -17,6 +18,7 @@ export function DashboardPage() {
         </p>
       </div>
       <StatsOverview />
+      <AttemptHistory compact limit={5} showViewAll />
     </div>
   );
 }
